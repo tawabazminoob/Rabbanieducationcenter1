@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "builds": [
+    { "src": "index.js", "use": "@vercel/node" },
+    { "src": "admin.js", "use": "@vercel/node" }
+  ],
+  "rewrites": [
+    { "source": "/api/admin/:path*", "destination": "/admin.js" },
+    { "source": "/admin", "destination": "/admin.js" },
+    { "source": "/admin/", "destination": "/admin.js" },
+    { "source": "/api/:path*", "destination": "/index.js" },
+    { "source": "/:path*", "destination": "/index.js" }
+  ]
+}
